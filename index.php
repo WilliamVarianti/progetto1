@@ -6,9 +6,6 @@
 <body>
 
 <form action="gestione_prodotti.php">
-
-
-
 	 <p>Nome prodotto : </p>
 	 <input type="text" name="prodotto">
 
