@@ -1,30 +1,15 @@
-	<?php
+<?php
 
-	$user = 'utente_progetto';
-	$pass = 'password_progetto';
+	include('connessione.php');
 
-	try {
-	    $db = new PDO('mysql:host=localhost; dbname=progetto1', $user, $pass);
-	} catch (PDOException $e) {
-	    print "Error!: " . $e->getMessage() . "<br/>";
-	    die();
-	}
-	
-	 ?>
+	$sql ="INSERT INTO prodotti (nome) VALUES (:nome)";	
+	$query=$db->prepare($sql);
+	$query->bindParam(':nome', $_POST['nome']);
+	$query->execute();
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Gestione Prodotti</title>
-</head>
-<body>
+	$db = null;
 
-<h3>Gestione dei prodotti</h3>
+	header('Location: index.php');
 
 
-
-</body>
-</html>
-
-
-<?php $db = null; ?>
+?>
